@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper_second_variant"
+    tools:context=".presentation.ui.weatherFragment.WeatherFragment">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        style="@style/GuideStyle"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/normal_size" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        style="@style/GuideStyle"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/normal_size" />
+
+    <TextView
+        android:id="@+id/tv_data"
+        style="@style/TextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/min_size"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2023-03-29 15:19" />
+
+    <ImageView
+        android:id="@+id/iw_current_weather"
+        style="@style/FragmentPictureStyle"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/iw_weather_anim"
+        style="@style/FragmentPictureStyle"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/weather_storm" />
+
+    <ImageView
+        android:id="@+id/iw_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/location_svgrepo_com"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_city"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toTopOf="@+id/tv_city" />
+
+    <TextView
+        android:id="@+id/tv_city"
+        style="@style/TextColor"
+        android:layout_width="@dimen/null_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/min_size"
+        android:layout_marginTop="@dimen/normal_size"
+        android:layout_marginEnd="@dimen/min_size"
+        android:ellipsize="end"
+        android:gravity="bottom"
+        android:maxLines="1"
+        android:textSize="@dimen/l_text_size"
+        app:layout_constraintEnd_toStartOf="@+id/iw_weather_anim"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/iw_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_data"
+        app:layout_goneMarginEnd="@dimen/plus_s_size"
+        tools:text="Your location" />
+
+    <TextView
+        android:id="@+id/tv_current_temperature"
+        style="@style/TextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/xxl_text_size"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/tv_city"
+        tools:text="20°С" />
+
+    <TextView
+        android:id="@+id/tv_max_min"
+        style="@style/TextViewStyle"
+        app:drawableStartCompat="@drawable/temperature"
+        app:layout_constraintEnd_toEndOf="@+id/tv_current_temperature"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/tv_current_temperature"
+        tools:text="25°/16°" />
+
+    <TextView
+        android:id="@+id/tv_precipitation"
+        style="@style/TextViewStyle"
+        android:layout_marginTop="@dimen/normal_xxs_size"
+        app:drawableStartCompat="@drawable/humidity_rain"
+        app:layout_constraintEnd_toStartOf="@+id/tv_wind_speed"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/tv_max_min"
+        tools:text="6%" />
+
+    <TextView
+        android:id="@+id/tv_wind_speed"
+        style="@style/TextViewStyle"
+        app:drawableStartCompat="@drawable/windy_cloudy"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_precipitation"
+        app:layout_constraintEnd_toStartOf="@+id/tv_pressure"
+        app:layout_constraintStart_toEndOf="@+id/tv_precipitation"
+        tools:text="19 mp/h" />
+
+    <TextView
+        android:id="@+id/tv_pressure"
+        style="@style/TextViewStyle"
+        app:drawableStartCompat="@drawable/air_pressure_svgrepo_com"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_wind_speed"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintStart_toEndOf="@+id/tv_wind_speed"
+        tools:text="760" />
+
+    <ImageButton
+        android:id="@+id/ib_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/min_size"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/tv_precipitation"
+        app:srcCompat="@drawable/baseline_search_24" />
+
+    <ImageButton
+        android:id="@+id/ib_reload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/min_size"
+        android:background="@null"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_precipitation"
+        app:srcCompat="@drawable/baseline_cloud_sync_24" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/iw_progress_bar"
+        android:layout_width="@dimen/plus_max_size"
+        android:layout_height="@dimen/plus_max_size"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/ib_search"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/gibli_tribute" />
+
+    <TextView
+        android:id="@+id/tv_no_result"
+        style="@style/TextViewStyle"
+        android:layout_marginTop="@dimen/normal_size"
+        android:maxLines="3"
+        android:text="@string/no_result"
+        android:textAlignment="center"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/iv_clean_tv_no_result"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/ib_search" />
+
+    <ImageView
+        android:id="@+id/iv_clean_tv_no_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_no_result_circle"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_no_result"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_no_result"
+        app:layout_constraintTop_toTopOf="@+id/tv_no_result" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcView_hours"
+        android:layout_width="@dimen/null_size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/min_size"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/ib_search"
+        tools:itemCount="1" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcView_forecast"
+        android:layout_width="@dimen/null_size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_xs_size"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/rcView_hours"
+        tools:itemCount="3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

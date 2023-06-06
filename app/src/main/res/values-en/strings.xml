@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Weather forecast</string>
+    <string name="pressure">mm Hg</string>
+    <string name="wind_speed">km/h</string>
+
+    <string name="no_result">Nothing found. \nTry modifying your search.</string>
+    <string name="something_wrong">Something went wrong. \nTry again later.</string>
+
+    <string name="location_disabled">Location is disabled, enable it?</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="city">City Name:</string>
+    <string name="enable_location">Location is not available</string>
+
+    <string name="NoInternetConnection">No internet connection</string>
+    <string name="Connect_to_internet">Internet connection is required for proper operation</string>
+    <string name="Today">Today</string>
+</resources>

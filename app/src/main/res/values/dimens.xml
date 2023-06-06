@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="null_size">0dp</dimen>
+    <dimen name="small_size">4dp</dimen>
+    <dimen name="min_size">8dp</dimen>
+    <dimen name="normal_size">16dp</dimen>
+    <dimen name="normal_xxs_size">20dp</dimen>
+    <dimen name="normal_xs_size">25dp</dimen>
+    <dimen name="normal_s_size">30dp</dimen>
+    <dimen name="normal_m_size">40dp</dimen>
+    <dimen name="normal_mm_size">48dp</dimen>
+    <dimen name="normal_l_size">60dp</dimen>
+    <dimen name="normal_xl_size">80dp</dimen>
+    <dimen name="plus_size">120dp</dimen>
+    <dimen name="plus_s_size">132dp</dimen>
+    <dimen name="plus_max_size">200dp</dimen>
+
+    <dimen name="xs_text_size">12sp</dimen>
+    <dimen name="s_text_size">14sp</dimen>
+    <dimen name="m_text_size">16sp</dimen>
+    <dimen name="l_text_size">20sp</dimen>
+    <dimen name="xxl_text_size">60sp</dimen>
+</resources>

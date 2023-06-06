@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/black">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/iv_weather_anim"
+        style="@style/DaysPictureStyle"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/weather_storm" />
+
+    <ImageView
+        android:id="@+id/iw_current_weather"
+        style="@style/DaysPictureStyle"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/tv_day"
+        style="@style/TextViewStyle"
+        android:layout_width="@dimen/null_size"
+        android:layout_marginStart="@dimen/small_size"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Понедельник" />
+
+    <TextView
+        android:id="@+id/tv_max_min_temp"
+        style="@style/TextViewStyle"
+        android:layout_width="@dimen/null_size"
+        android:layout_marginEnd="@dimen/small_size"
+        android:gravity="end"
+        android:textSize="@dimen/s_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_weather_anim"
+        app:layout_constraintStart_toEndOf="@+id/tv_precipitation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginEnd="@dimen/normal_mm_size"
+        tools:text="23°/19°" />
+
+    <TextView
+        android:id="@+id/tv_sunrise"
+        style="@style/TextViewStyle"
+        android:layout_width="@dimen/null_size"
+        android:drawablePadding="@dimen/small_size"
+        android:textSize="@dimen/s_text_size"
+        app:drawableStartCompat="@drawable/sunrise"
+        app:layout_constraintBottom_toTopOf="@+id/tv_sunset"
+        app:layout_constraintEnd_toStartOf="@+id/tv_precipitation"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
+        tools:text="05:39" />
+
+    <TextView
+        android:id="@+id/tv_precipitation"
+        style="@style/TextViewStyle"
+        android:layout_width="wrap_content"
+        android:textSize="@dimen/s_text_size"
+        app:drawableStartCompat="@drawable/humidity_rain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_max_min_temp"
+        app:layout_constraintStart_toEndOf="@+id/tv_sunrise"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="6%" />
+
+    <TextView
+        android:id="@+id/tv_sunset"
+        style="@style/TextViewStyle"
+        android:layout_width="@dimen/null_size"
+        android:drawablePadding="@dimen/small_size"
+        android:textSize="@dimen/s_text_size"
+        app:drawableStartCompat="@drawable/sunset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_sunrise"
+        app:layout_constraintStart_toStartOf="@+id/tv_sunrise"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sunrise"
+        tools:text="19:24" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/normal_xl_size"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
