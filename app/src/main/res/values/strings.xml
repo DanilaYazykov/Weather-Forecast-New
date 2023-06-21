@@ -15,4 +15,8 @@
     <string name="NoInternetConnection">Отсутствует интернет соединение</string>
     <string name="Connect_to_internet">Для корректной работы требуется подключить интернет соединение</string>
     <string name="Today">Сегодня</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Второй экран</string>
+    <string name="settings">Настройки</string>
+    <string name="Building">Экран в разработке</string>
 </resources>

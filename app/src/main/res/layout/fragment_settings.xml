@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.MainActivity">
+    android:background="@drawable/wallpaper_first_variant"
+    tools:context=".presentation.ui.settingFragment.FragmentSettings">
 
-    <FrameLayout
-        android:id="@+id/place_holder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Building"
+        android:textColor="@color/black"
+        android:textSize="@dimen/l_text_size"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.060000002" />
 
-    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
