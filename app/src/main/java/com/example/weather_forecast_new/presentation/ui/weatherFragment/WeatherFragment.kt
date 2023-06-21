@@ -177,9 +177,4 @@ class WeatherFragment : Fragment() {
             context = requireContext()
         )
     }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() = WeatherFragment()
-    }
 }

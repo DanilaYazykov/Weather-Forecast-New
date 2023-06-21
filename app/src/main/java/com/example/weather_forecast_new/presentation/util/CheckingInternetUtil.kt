@@ -7,9 +7,9 @@ import android.os.Build
 import com.example.weather_forecast_new.presentation.presenters.CheckingInternet
 
 @Suppress("DEPRECATION")
-class CheckingInternetUtil : CheckingInternet {
+class CheckingInternetUtil(val context: Context?) : CheckingInternet {
 
-    override fun isNetworkAvailable(context: Context?): Boolean {
+    override fun isNetworkAvailable(): Boolean {
         if (context == null) return false
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

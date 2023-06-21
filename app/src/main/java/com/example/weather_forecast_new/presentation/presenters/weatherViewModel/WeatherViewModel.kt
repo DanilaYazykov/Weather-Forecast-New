@@ -1,5 +1,6 @@
 package com.example.weather_forecast_new.presentation.presenters.weatherViewModel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weather_forecast_new.data.network.NetworkResult
@@ -9,6 +10,7 @@ import com.example.weather_forecast_new.domain.models.WeatherModel
 import com.example.weather_forecast_new.domain.models.WeatherResult
 import com.example.weather_forecast_new.domain.models.WeatherState
 import com.example.weather_forecast_new.presentation.presenters.storagePresenter.CityStoragePresenter
+import com.example.weather_forecast_new.presentation.util.CheckingInternetUtil
 import com.example.weather_forecast_new.presentation.util.LocationManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +21,7 @@ import kotlinx.coroutines.launch
 class WeatherViewModel(
     private val locationManager: LocationManager,
     private val weatherInteractor: WeatherInteractor,
-    private val internet : Boolean,
+    private val internet : CheckingInternetUtil,
     cityStorage: CityStoragePresenter
 ) : ViewModel() {
 
@@ -58,6 +60,7 @@ class WeatherViewModel(
         networkCheckJobGps = CoroutineScope(Dispatchers.Main).launch {
             delay(SEARCH_DEBOUNCE_DELAY)
             val gps = locationManager.isLocationEnabled()
+            Log.e("AAAAA", "gps $gps")
             _liveDataInternetGps.postValue(_liveDataInternetGps.value?.copy(gpsData = gps))
         }
     }
@@ -66,7 +69,9 @@ class WeatherViewModel(
         networkCheckJobInternet?.cancel()
         networkCheckJobInternet = CoroutineScope(Dispatchers.IO).launch {
             delay(SEARCH_DEBOUNCE_DELAY)
-            _liveDataInternetGps.postValue(_liveDataInternetGps.value?.copy(internetData = internet))
+            val result = internet.isNetworkAvailable()
+            Log.e("AAAAA", "internet $result")
+            _liveDataInternetGps.postValue(_liveDataInternetGps.value?.copy(internetData = result))
         }
     }
 
@@ -109,4 +114,3 @@ class WeatherViewModel(
         private const val SEARCH_DEBOUNCE_DELAY = 1000L
     }
 }
-

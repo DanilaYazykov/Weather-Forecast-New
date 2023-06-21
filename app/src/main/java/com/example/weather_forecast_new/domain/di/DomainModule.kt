@@ -31,8 +31,8 @@ val domainModule = module {
         LocationManager(context = androidContext(), cityStoragePresenter = get())
     }
 
-    factory <Boolean> {
-        CheckingInternetUtil().isNetworkAvailable(context = androidContext())
+    factory <CheckingInternetUtil> {
+        CheckingInternetUtil(context = androidContext())
     }
 
 }
