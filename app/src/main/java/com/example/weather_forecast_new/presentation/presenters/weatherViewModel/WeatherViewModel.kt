@@ -1,8 +1,8 @@
 package com.example.weather_forecast_new.presentation.presenters.weatherViewModel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.weather_forecast_new.data.network.NetworkResult
 import com.example.weather_forecast_new.domain.api.WeatherInteractor
 import com.example.weather_forecast_new.domain.models.InternetGpsState
@@ -60,7 +60,6 @@ class WeatherViewModel(
         networkCheckJobGps = CoroutineScope(Dispatchers.Main).launch {
             delay(SEARCH_DEBOUNCE_DELAY)
             val gps = locationManager.isLocationEnabled()
-            Log.e("AAAAA", "gps $gps")
             _liveDataInternetGps.postValue(_liveDataInternetGps.value?.copy(gpsData = gps))
         }
     }
@@ -70,15 +69,16 @@ class WeatherViewModel(
         networkCheckJobInternet = CoroutineScope(Dispatchers.IO).launch {
             delay(SEARCH_DEBOUNCE_DELAY)
             val result = internet.isNetworkAvailable()
-            Log.e("AAAAA", "internet $result")
             _liveDataInternetGps.postValue(_liveDataInternetGps.value?.copy(internetData = result))
         }
     }
 
     fun loadWeather(name: String) {
+        viewModelScope.launch {
+            delay(SEARCH_DEBOUNCE_DELAY)
             sharedPreferences.saveCity(name)
             weatherInteractor.getWeatherFromAPI(city = name, weatherInfoConsumer = weatherConsumer)
-
+        }
     }
 
     private val weatherConsumer: WeatherInteractor.WeatherInfoConsumer =
